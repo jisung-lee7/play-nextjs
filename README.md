@@ -1,6 +1,8 @@
 # play-nextjs
 
-My personal playground for nextjs14-page-router coding and learning.
+My personal playground for nextjs coding and learning.
+- nextjs14: page-router
+- nextjs15: app-router
 
 ## :pushpin: Summary
 ### Table of contents
@@ -15,6 +17,7 @@ My personal playground for nextjs14-page-router coding and learning.
       - [Server Side Rendering(SSR)](#server-side-renderingssr)
       - [Static Site Generation(SSG)](#static-site-generationssg)
       - [Incremental Static Regeneration(ISR)](#incremental-static-regenerationisr)
+- [App Router](#label-app-router)
 <br><br>
 
 ## :label: Next.js
@@ -141,4 +144,12 @@ My personal playground for nextjs14-page-router coding and learning.
 
 - On-demand validation with `res.revalidate()`
    - For a more precise method of revalidation, use res.revalidate to generate a new page on-demand from an API Router.
+<br><br>
+
+## :label: App Router
+- Next.js uses a file-system based router where folders are used to define routes.
+- Each folder represents a route segment that maps to a URL segment. 
+- To create a nested route, you can nest folders inside each other.
+- A special page.js file is used to make route segments publicly accessible.
+![image](https://github.com/user-attachments/assets/4e4bebce-47d9-460a-8857-960017fbb263)
 <br><br>
