@@ -1,6 +1,8 @@
 # play-nextjs
 
-My personal playground for nextjs14-page-router coding and learning.
+My personal playground for nextjs coding and learning.
+- nextjs14: page-router
+- nextjs15: app-router
 
 ## :pushpin: Summary
 ### Table of contents
