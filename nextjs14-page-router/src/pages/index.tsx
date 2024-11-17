@@ -5,6 +5,7 @@ import BookItem from '@/components/book-item'
 import { InferGetStaticPropsType } from 'next'
 import fetchBooks from '@/lib/fetch-books'
 import fetchRandomBooks from '@/lib/fetch-random-books'
+import Head from 'next/head'
 
 export const getStaticProps = async () => {
   const [allBooks, recoBooks] = await Promise.all([
@@ -25,20 +26,31 @@ export default function Home({
   recoBooks
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div className={style.container}>
-      <section>
-        <h3>Current recommended books</h3>
-        {recoBooks.map((book) => (
-          <BookItem key={book.id} {...book} />
-        ))}
-      </section>
-      <section>
-        <h3>All registered books</h3>
-        {allBooks.map((book) => (
-          <BookItem key={book.id} {...book} />
-        ))}
-      </section>
-    </div>
+    <>
+      <Head>
+        <title>Onebite books</title>
+        <meta property="og:image" content="/thumbnail.png" />
+        <meta property="og:title" content="onebite books" />
+        <meta
+          property="og:description"
+          content="Lets explore the books registered in One Bite Books."
+        />
+      </Head>
+      <div className={style.container}>
+        <section>
+          <h3>Current recommended books</h3>
+          {recoBooks.map((book) => (
+            <BookItem key={book.id} {...book} />
+          ))}
+        </section>
+        <section>
+          <h3>All registered books</h3>
+          {allBooks.map((book) => (
+            <BookItem key={book.id} {...book} />
+          ))}
+        </section>
+      </div>
+    </>
   )
 }
 
