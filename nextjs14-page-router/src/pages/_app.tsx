@@ -1,28 +1,11 @@
+import GlobalLayout from '@/components/global-layout'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
 
 export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter()
-  const onClickButton = () => {
-    router.push('/test')
-    router.replace('/test')
-  }
   return (
-    <>
-      <header>
-        <Link href={'/'}>index</Link>
-        &nbsp;
-        <Link href={'/search'}>search</Link>
-        &nbsp;
-        <Link href={'/book/1'}>book/1</Link>
-        &nbsp;
-        <div>
-          <button onClick={onClickButton}>go to test page</button>
-        </div>
-      </header>
+    <GlobalLayout>
       <Component {...pageProps} />
-    </>
+    </GlobalLayout>
   )
 }
