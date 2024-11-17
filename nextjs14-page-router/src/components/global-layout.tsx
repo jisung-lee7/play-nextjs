@@ -1,13 +1,15 @@
+import style from './global-layout.module.css'
+import Link from 'next/link'
 import { ReactNode } from 'react'
 
 export default function GlobalLayout({ children }: { children: ReactNode }) {
   return (
-    <div>
-      <div>
-        <header>Header</header>
-        <main>{children}</main>
-        <footer>footer</footer>
-      </div>
+    <div className={style.container}>
+      <header className={style.header}>
+        <Link href={'/'}>📚 ONEBITE BOOKS</Link>
+      </header>
+      <main className={style.main}>{children}</main>
+      <footer className={style.footer}>Copyright @Jisung</footer>
     </div>
   )
 }
