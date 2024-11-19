@@ -3,7 +3,10 @@ import style from './page.module.css'
 import { BookData } from '@/types'
 
 async function AllBooks() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`)
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
+    { cache: 'no-store' }
+  )
   if (!response.ok) {
     return <div>Error...</div>
   }
