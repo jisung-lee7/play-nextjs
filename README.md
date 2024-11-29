@@ -7,6 +7,7 @@ My personal playground for nextjs14-page-router coding and learning.
 - [Next.js](#label-nextjs)
 - [CSR(Client Side Rendering)](#label-csrclient-side-rendering)
 - [Pre Rendering](#label-pre-rendering)
+- [Page Router](#label-page-router)
 <br><br>
 
 ## :label: Next.js
@@ -36,3 +37,16 @@ My personal playground for nextjs14-page-router coding and learning.
 ![image](https://github.com/user-attachments/assets/85f6a8aa-9cc6-487d-8e37-8d211a1e47ab)
 <br><br>
 
+## :label: Page Router
+- The Pages Router has a file-system based router built on the concept of pages.
+- Routing based on the file names in the pages folder structure. 
+![image](https://github.com/user-attachments/assets/77f49bc7-e6b0-4dd8-a596-afb120467aaa)
+<br><br>
+
+- Routing based on the folder names in the pages folder structure. 
+![image](https://github.com/user-attachments/assets/00da7787-3afc-448a-99c8-e650c20ff9a9)
+<br><br>
+
+
+
+<br><br>
