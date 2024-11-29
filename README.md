@@ -9,6 +9,7 @@ My personal playground for nextjs14-page-router coding and learning.
 - [Pre Rendering](#label-pre-rendering)
 - [Page Router](#label-page-router)
    - [Catch-all Segments](#catch-all-segments)
+   - [Optional Catch-all Segments](#optional-catch-all-segments)
 <br><br>
 
 ## :label: Next.js
@@ -53,5 +54,8 @@ My personal playground for nextjs14-page-router coding and learning.
 - For example, pages/shop/[...slug].js will match /shop/clothes, but also /shop/clothes/tops, /shop/clothes/tops/t-shirts, and so on.
 <br><br>
 
-
+### Optional Catch-all Segments
+- Catch-all Segments can be made optional by including the parameter in double square brackets: [[...segmentName]].
+- For example, pages/shop/[[...slug]].js will also match /shop, in addition to /shop/clothes, /shop/clothes/tops, /shop/clothes/tops/t-shirts.
+- The difference between catch-all and optional catch-all segments is that with optional, the route without the parameter is also matched (/shop in the example above).
 <br><br>
