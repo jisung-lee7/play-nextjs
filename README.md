@@ -7,6 +7,7 @@ My personal playground for nextjs14-page-router coding and learning.
 - [Next.js](#label-nextjs)
 - [CSR(Client Side Rendering)](#label-csrclient-side-rendering)
 - [Pre Rendering](#label-pre-rendering)
+   - [Pre Fetching](#pre-fetching)
 - [Page Router](#label-page-router)
    - [Catch-all Segments](#catch-all-segments)
    - [Optional Catch-all Segments](#optional-catch-all-segments)
@@ -37,6 +38,12 @@ My personal playground for nextjs14-page-router coding and learning.
 - Fast FCP(Resolve the cons of a React App).
 - Fast page navigation/transition.
 ![image](https://github.com/user-attachments/assets/f1de2e53-d1c4-4e82-b942-58ef6c0f9477)
+<br><br>
+
+### Pre Fetching
+- Programmatic navigation(router.push, router.replace, router.back, etc.) does not trigger pre-fetching. 
+- In this case, you can use useEffect to manually call router.prefetch.
+- If you want disable prefetch, you can set `<Link href={'~/../..'} prefetch={false}>`
 <br><br>
 
 ## :label: Page Router
