@@ -8,6 +8,7 @@ My personal playground for nextjs14-page-router coding and learning.
 - [CSR(Client Side Rendering)](#label-csrclient-side-rendering)
 - [Pre Rendering](#label-pre-rendering)
 - [Page Router](#label-page-router)
+   - [Catch-all Segments](#catch-all-segments)
 <br><br>
 
 ## :label: Next.js
@@ -47,6 +48,10 @@ My personal playground for nextjs14-page-router coding and learning.
 ![image](https://github.com/user-attachments/assets/00da7787-3afc-448a-99c8-e650c20ff9a9)
 <br><br>
 
+### Catch-all Segments
+- Dynamic Segments can be extended to catch-all subsequent segments by adding an ellipsis inside the brackets [...segmentName].
+- For example, pages/shop/[...slug].js will match /shop/clothes, but also /shop/clothes/tops, /shop/clothes/tops/t-shirts, and so on.
+<br><br>
 
 
 <br><br>
