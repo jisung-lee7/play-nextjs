@@ -6,6 +6,7 @@ My personal playground for nextjs14-page-router coding and learning.
 ### Table of contents
 - [Next.js](#label-nextjs)
 - [CSR(Client Side Rendering)](#label-csrclient-side-rendering)
+- [Pre Rendering](#label-pre-rendering)
 <br><br>
 
 ## :label: Next.js
@@ -27,5 +28,11 @@ My personal playground for nextjs14-page-router coding and learning.
 ![image](https://github.com/user-attachments/assets/cae32d4d-5afb-4db4-9c59-7ee781c94472)
    - Pros: Extremely fast page navigation/transition.
    - Cons: Slow FCP(First Contentful Paint); Initial load time.
+<br><br>
+
+## :label: Pre Rendering
+- Fast FCP(Resolve the cons of a React App).
+- Fast page navigation/transition.
+![image](https://github.com/user-attachments/assets/85f6a8aa-9cc6-487d-8e37-8d211a1e47ab)
 <br><br>
 
