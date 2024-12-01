@@ -11,6 +11,10 @@ My personal playground for nextjs14-page-router coding and learning.
 - [Page Router](#label-page-router)
    - [Catch-all Segments](#catch-all-segments)
    - [Optional Catch-all Segments](#optional-catch-all-segments)
+   - [Data Fetching](#data-fetching)
+      - [Server Side Rendering(SSR)](#server-side-renderingssr)
+      - [Static Site Generation(SSG)](#static-site-generationssg)
+      - [Incremental Static Regeneration(ISR)](#incremental-static-regenerationisr)
 <br><br>
 
 ## :label: Next.js
@@ -65,4 +69,67 @@ My personal playground for nextjs14-page-router coding and learning.
 - Catch-all Segments can be made optional by including the parameter in double square brackets: [[...segmentName]].
 - For example, pages/shop/[[...slug]].js will also match /shop, in addition to /shop/clothes, /shop/clothes/tops, /shop/clothes/tops/t-shirts.
 - The difference between catch-all and optional catch-all segments is that with optional, the route without the parameter is also matched (/shop in the example above).
+<br><br>
+
+### Data Fetching
+- React
+![image](https://github.com/user-attachments/assets/abfbdc1c-5f3a-48ef-af86-0c9934c846e4)
+   - Cons: Since fetch data is called at the point when the component is mounted, it takes a long time from the initial connection request to data loading.
+<br><br>
+
+- Next.js
+#### Server Side Rendering(SSR)
+- To use Server-side Rendering for a page, you need to export an async function called getServerSideProps. This function will be called by the server on every request.
+![image](https://github.com/user-attachments/assets/c5a06495-169b-4b99-8c2b-204fed360fef)
+   - Pros: The data within the page can always be kept up-to-date.
+   - Cons: If the data request is delayed, everything else gets delayed as well.
+<br><br>
+
+#### Static Site Generation(SSG)
+- If a page uses Static Generation, the page HTML is generated at build time.
+- Pros: Even pages that take a long time for pre-rendering can respond to user requests very quickly(Resolve the cons of SSR).
+- Cons: It always responds with the same page, not the latest data.
+- Your page content depends on external data
+   - Use getStaticProps.
+- Your page paths depend on external data(Next.js allows you to create pages with dynamic routes.)
+   - Use getStaticPaths (usually in addition to getStaticProps).
+   - fallback(optional)
+      - false: Other routes should 404(Not Found).
+         ![image](https://github.com/user-attachments/assets/0656f357-6e53-4385-b602-1a6c1536e227)
+         <br><br>
+      - blocking: Generate immediately.
+         ![image](https://github.com/user-attachments/assets/b7e82ef4-38e7-49ae-b82d-6343ae1d17eb)
+         <br><br>
+      - true: Generate immediately and return only the page in advance.(No props)
+         ![image](https://github.com/user-attachments/assets/0cdbc07a-a370-441d-a5a0-a600d4086662)
+         <br><br>
+<br><br>
+
+#### Incremental Static Regeneration(ISR)
+- Incremental Static Regeneration (ISR) enables you to:
+   - Update static content without rebuilding the entire site
+   - Reduce server load by serving prerendered, static pages for most requests
+   - Ensure proper cache-control headers are automatically added to pages
+   - Handle large amounts of content pages without long next build times
+ 
+  ![image](https://github.com/user-attachments/assets/8d3f72bb-28f2-4a72-9b28-574e8a28c102)
+<br><br>
+
+```typescript
+  return {
+    props: { post },
+    // Next.js will invalidate the cache when a
+    // request comes in, at most once every 60 seconds.
+    revalidate: 60,
+  }
+```
+<br>
+
+- Pros
+   - Even pages that take a long time for pre-rendering can respond to user requests very quickly.
+   - The data within the page can always be kept up-to-date. 
+- Cons: It is not suitable for pages where data updates based on user events.
+
+- On-demand validation with `res.revalidate()`
+   - For a more precise method of revalidation, use res.revalidate to generate a new page on-demand from an API Router.
 <br><br>
