@@ -13,6 +13,7 @@ My personal playground for nextjs coding and learning.
 - [Page Router](#label-page-router)
    - [Catch-all Segments](#catch-all-segments)
    - [Optional Catch-all Segments](#optional-catch-all-segments)
+   - [Data Fetching](#data-fetching)
 <br><br>
 
 ## :label: Next.js
@@ -67,4 +68,15 @@ My personal playground for nextjs coding and learning.
 - Catch-all Segments can be made optional by including the parameter in double square brackets: [[...segmentName]].
 - For example, pages/shop/[[...slug]].js will also match /shop, in addition to /shop/clothes, /shop/clothes/tops, /shop/clothes/tops/t-shirts.
 - The difference between catch-all and optional catch-all segments is that with optional, the route without the parameter is also matched (/shop in the example above).
+<br><br>
+
+### Data Fetching
+- React
+![image](https://github.com/user-attachments/assets/abfbdc1c-5f3a-48ef-af86-0c9934c846e4)
+   - Cons: Since fetch data is called at the point when the component is mounted, it takes a long time from the initial connection request to data loading.
+<br><br>
+
+- Next.js
+![image](https://github.com/user-attachments/assets/65ed7f00-1267-43fa-8a26-d1bade6164bf)
+
 <br><br>
