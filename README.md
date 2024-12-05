@@ -52,6 +52,15 @@ My personal playground for nextjs14-page-router coding and learning.
 
 ## :label: Page Router
 - The Pages Router has a file-system based router built on the concept of pages.
+- Pros
+   - Provides simple page routing based on the file system.
+   - Offers multiple methods of pre-rendering.
+- Cons
+   - Setting layouts for each page is cumbersome.
+   - Data fetching is concentrated solely within the page components.
+   - Unnecessary components (components that do not require interaction) are also included in the JS bundle.
+<br><br>
+
 - Routing based on the file names in the pages folder structure. 
 ![image](https://github.com/user-attachments/assets/77f49bc7-e6b0-4dd8-a596-afb120467aaa)
 <br><br>
