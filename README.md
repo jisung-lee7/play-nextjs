@@ -18,6 +18,7 @@ My personal playground for nextjs coding and learning.
       - [Static Site Generation(SSG)](#static-site-generationssg)
       - [Incremental Static Regeneration(ISR)](#incremental-static-regenerationisr)
 - [App Router](#label-app-router)
+   - [Catch-all-segments & Optional Catch-all segments(App router)](#catch-all-segments--optional-catch-all-segmentsapp-router)
 <br><br>
 
 ## :label: Next.js
@@ -153,3 +154,10 @@ My personal playground for nextjs coding and learning.
 - A special page.js file is used to make route segments publicly accessible.
 ![image](https://github.com/user-attachments/assets/4e4bebce-47d9-460a-8857-960017fbb263)
 <br><br>
+
+### Catch-all-segments & Optional Catch-all segments(App router)
+- App router’s catch-all segments and optional catch-all segments behave in the same way.
+   - [Catch-all Segments](#catch-all-segments)
+   - [Optional Catch-all Segments](#optional-catch-all-segments)
+<br><br>
+
