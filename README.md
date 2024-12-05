@@ -19,6 +19,7 @@ My personal playground for nextjs coding and learning.
       - [Incremental Static Regeneration(ISR)](#incremental-static-regenerationisr)
 - [App Router](#label-app-router)
    - [Catch-all-segments & Optional Catch-all segments(App router)](#catch-all-segments--optional-catch-all-segmentsapp-router)
+   - [Route groups](#route-groups)
 <br><br>
 
 ## :label: Next.js
@@ -159,5 +160,18 @@ My personal playground for nextjs coding and learning.
 - App router’s catch-all segments and optional catch-all segments behave in the same way.
    - [Catch-all Segments](#catch-all-segments)
    - [Optional Catch-all Segments](#optional-catch-all-segments)
+<br><br>
+
+### Route groups
+- In the app directory, nested folders are normally mapped to URL paths. 
+- However, you can mark a folder as a Route Group to prevent the folder from being included in the route's URL path.
+- This allows you to organize your route segments and project files into logical groups without affecting the URL path structure.
+- Route groups are useful for:
+   - Organizing routes into groups e.g. by site section, intent, or team.
+   - Enabling nested layouts in the same route segment level:
+      - Creating multiple nested layouts in the same segment, including multiple root layouts
+      - Adding a layout to a subset of routes in a common segment
+   - Adding a loading skeleton to specific route in a common segment
+- A route group can be created by wrapping a folder's name in parenthesis: `(folderName)`
 <br><br>
 
