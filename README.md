@@ -20,6 +20,7 @@ My personal playground for nextjs coding and learning.
 - [App Router](#label-app-router)
    - [Catch-all-segments & Optional Catch-all segments(App router)](#catch-all-segments--optional-catch-all-segmentsapp-router)
    - [Route groups](#route-groups)
+   - [React Server Component](#react-server-component)
 <br><br>
 
 ## :label: Next.js
@@ -174,4 +175,66 @@ My personal playground for nextjs coding and learning.
    - Adding a loading skeleton to specific route in a common segment
 - A route group can be created by wrapping a folder's name in parenthesis: `(folderName)`
 <br><br>
+
+### React Server Component
+- Released in React v18.
+- Components that execute only on the server side(Components that require interaction only).
+- It is recommended to compose most of the page with server components. 
+- Use client components only when absolutely necessary.
+- Caveats
+   - Server components must not include code that will execute in the browser as follows:
+      - React hooks, Event handler, Library that contain functionalities executed in the browser.
+   - Client components are not executed exclusively on the client.
+      - Client components are executed twice: once on the server and once on the client.
+   - The following pattern is not supported. You cannot import a Server Component into a Client Component:
+      - In this case, to avoid run-time errors, Next.js automatically converts server component to client component.
+         ```typescript
+         'use client'
+          
+         // You cannot import a Server Component into a Client Component.
+         import ServerComponent from './Server-Component'
+          
+         export default function ClientComponent({
+           children,
+         }: {
+           children: React.ReactNode
+         }) {
+           return (
+             <>
+               <ServerComponent />
+             </>
+           )
+         }      
+         ```
+         <br>
+      - If you want the following pattern is supported. You can pass Server Components as a prop to a Client Component. 
+         ```typescript
+         'use client'
+          
+         import { useState } from 'react'
+          
+         export default function ClientComponent({
+           children,
+         }: {
+           children: React.ReactNode
+         }) {
+           return (
+             <>
+               {children}
+             </>
+           )
+         }
+         ```
+         <br>
+   - Props that cannot be serialized(like functions) in Server Components cannot be passed to Client Components.
+      - Serialization
+         - The process of converting complex data structures such as objects, arrays, and classes into a simple format (such as a string or byte) for transmission over a network is called serialization.
+      - Detail of pre-rendering:
+         ![image](https://github.com/user-attachments/assets/25658cdb-2e7b-4c4f-952a-7035276e04fb)
+         - RSC Payload: The RSC Payload is a compact binary representation of the rendered React Server Components tree. 
+         - The RSC Payload contains:
+            - The rendered result of Server Components
+            - Placeholders for where Client Components should be rendered and references to their JavaScript files
+            - Any props passed from a Server Component to a Client Component
+            <br><br>
 
