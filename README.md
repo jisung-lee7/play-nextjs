@@ -23,6 +23,7 @@ My personal playground for nextjs coding and learning.
    - [React Server Component](#react-server-component)
    - [Pre Rendering(App router)](#pre-renderingapp-router)
       - [Pre Fetching(App router)](#pre-fetchingapp-router)
+   - [Data Fetching(App router)](#data-fetchingapp-router)
 <br><br>
 
 ## :label: Next.js
@@ -251,3 +252,17 @@ My personal playground for nextjs coding and learning.
    - Dynamic page: Pages generated on each browser request(like SSR). Only the RSC payload is pre fetched.
 <br><br>
 
+### Data Fetching(App router)
+- Data fetching in Page Router:
+   1. There was no concept of Server components.
+   2. Therefore, during the pre-rendering process, special functions (such as getServerSideProps, getStaticProps, getStaticPaths) had to be used to ensure data fetching occurs exclusively on the server side.
+   3. The fetched data had to be explicitly passed as props to the Page component.
+   <br><br>
+
+- Data fetching in App Router:
+   1. "Fetching data where it's needed"
+   2. Introduction of Server components.
+   3. Server components and async/await can be used for fetching data. 
+      (In the Page Router, all components were Client components, so the async keyword couldn’t be used. 
+      Why? It could cause issues when running in the browser, so it was discouraged.)
+   <br><br>
