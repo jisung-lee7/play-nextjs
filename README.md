@@ -21,6 +21,7 @@ My personal playground for nextjs coding and learning.
    - [Catch-all-segments & Optional Catch-all segments(App router)](#catch-all-segments--optional-catch-all-segmentsapp-router)
    - [Route groups](#route-groups)
    - [React Server Component](#react-server-component)
+   - [Pre Rendering(App router)](#pre-renderingapp-router)
 <br><br>
 
 ## :label: Next.js
@@ -237,4 +238,8 @@ My personal playground for nextjs coding and learning.
             - Placeholders for where Client Components should be rendered and references to their JavaScript files
             - Any props passed from a Server Component to a Client Component
             <br><br>
+
+### Pre Rendering(App router)
+![image](https://github.com/user-attachments/assets/2fb142fc-eef3-44d5-ba7f-b53da9fb7450)
+<br><br>
 
