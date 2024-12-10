@@ -22,6 +22,7 @@ My personal playground for nextjs coding and learning.
    - [Route groups](#route-groups)
    - [React Server Component](#react-server-component)
    - [Pre Rendering(App router)](#pre-renderingapp-router)
+      - [Pre Fetching(App router)](#pre-fetchingapp-router)
 <br><br>
 
 ## :label: Next.js
@@ -241,5 +242,12 @@ My personal playground for nextjs coding and learning.
 
 ### Pre Rendering(App router)
 ![image](https://github.com/user-attachments/assets/2fb142fc-eef3-44d5-ba7f-b53da9fb7450)
+<br><br>
+
+#### Pre Fetching(App router)
+- If you want to test it, you can check the Network tab in 'Production(npm run start after npm run build)' mode(Pre-fetching does not work in 'Development(npm run dev)' mode).
+- All pages in the app router are divided into the following two categories:
+   - Static page: Static pages pre-generated at build time(like SSG). Both the RSC payload and the JS Bundle are pre fetched.
+   - Dynamic page: Pages generated on each browser request(like SSR). Only the RSC payload is pre fetched.
 <br><br>
 
