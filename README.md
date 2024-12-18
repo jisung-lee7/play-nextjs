@@ -24,6 +24,8 @@ My personal playground for nextjs coding and learning.
    - [Pre Rendering(App router)](#pre-renderingapp-router)
       - [Pre Fetching(App router)](#pre-fetchingapp-router)
    - [Data Fetching(App router)](#data-fetchingapp-router)
+   - [Data Cache](#data-cache)
+      - [fetch](#fetch)
 <br><br>
 
 ## :label: Next.js
@@ -266,3 +268,47 @@ My personal playground for nextjs coding and learning.
       (In the Page Router, all components were Client components, so the async keyword couldn’t be used. 
       Why? It could cause issues when running in the browser, so it was discouraged.)
    <br><br>
+
+### Data Cache
+- Next.js improves your application's performance and reduces costs by caching rendering work and data requests. 
+- A feature that stores data fetched using the fetch method on the Next.js server.
+
+#### fetch
+- Next.js extends the Web fetch() API to allow each request on the server to set its own persistent caching and revalidation semantics.
+- It is used to persistently store data fetched from the backend server.
+- The data remains stored as long as the server is running.
+<br>
+
+- fetch(url, options): It is only available for use within the fetch method.
+   - `{ cache: "no-store" }`
+      ![image](https://github.com/user-attachments/assets/34789108-e249-4545-a641-ab0ba92b6b94)
+      - Next.js fetches the resource from the remote server on every request, even if Dynamic APIs are not detected on the route.
+      - It does not store the result of data fetching. 
+      - It is an option to disable caching entirely.
+      - The default caching behavior of fetch (e.g., when the cache option is not specified) is equal to setting the cache option to no-store(Next.js v 15~).
+   <br>
+
+   - `{ cache: "force-cache" }`
+      ![image](https://github.com/user-attachments/assets/bc7dc142-f9ef-4d28-8642-3be699d5d693)
+      - Next.js looks for a matching request in its Data Cache.
+         - If there is a match and it is fresh, it will be returned from the cache.
+         - If there is no match or a stale match, Next.js will fetch the resource from the remote server and update the cache with the downloaded resource.
+      - It caches the result of the request unconditionally. 
+      - Once called, it will not be called again.
+   <br>
+
+   - `{ next: { revalidate: 3 } }`
+      ![image](https://github.com/user-attachments/assets/4090e067-6d7b-4683-a0cf-a8f130ee41a2)
+      - Updates the cache periodically at specified intervals.
+      -  Similar to the ISR approach in the Page Router.
+      - Set the cache lifetime of a resource (in seconds).
+         - false : Cache the resource indefinitely. Semantically equivalent to revalidate: Infinity. The HTTP cache may evict older resources over time.
+         - 0 : Prevent the resource from being cached.
+         - number : (in seconds) Specify the resource should have a cache lifetime of at most n seconds.
+   <br>
+
+   - `{ next: { tags: ['a'] } }`
+      - Update data when a request is received.
+      - On-Demand Revalidate(Similar to the On-Demand ISR approach in the Page Router)
+   <br>
+
