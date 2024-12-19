@@ -274,6 +274,7 @@ My personal playground for nextjs coding and learning.
 
 #### fetch
 - Next.js extends the Web fetch() API to allow each request on the server to set its own persistent caching and revalidation semantics.
+<br>
 
 - fetch(url, options): It is only available for use within the fetch method.
    - `{ cache: "no-store" }`
@@ -283,15 +284,15 @@ My personal playground for nextjs coding and learning.
       - It is an option to disable caching entirely.
       - The default caching behavior of fetch (e.g., when the cache option is not specified) is equal to setting the cache option to no-store(Next.js v 15~).
    - `{ cache: "force-cache" }`
-     ![Uploading image.png…]()
-
+      ![image](https://github.com/user-attachments/assets/bc7dc142-f9ef-4d28-8642-3be699d5d693)
       - Next.js looks for a matching request in its Data Cache.
          - If there is a match and it is fresh, it will be returned from the cache.
          - If there is no match or a stale match, Next.js will fetch the resource from the remote server and update the cache with the downloaded resource.
       - It caches the result of the request unconditionally. 
       - Once called, it will not be called again.
    - `{ next: { revalidate: 10 } }`
-      - 
+      - Updates the cache periodically at specified intervals.
+	    - Similar to the ISR approach in the Page Router.
    - `{ next: { tags: ['a'] } }`
       - 
 
