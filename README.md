@@ -283,7 +283,7 @@ My personal playground for nextjs coding and learning.
       - It is an option to disable caching entirely.
       - The default caching behavior of fetch (e.g., when the cache option is not specified) is equal to setting the cache option to no-store(Next.js v 15~).
    - `{ cache: "force-cache" }`
-     ![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/bc7dc142-f9ef-4d28-8642-3be699d5d693)
 
       - Next.js looks for a matching request in its Data Cache.
          - If there is a match and it is fresh, it will be returned from the cache.
