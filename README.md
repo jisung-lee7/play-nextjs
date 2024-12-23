@@ -26,6 +26,7 @@ My personal playground for nextjs coding and learning.
    - [Data Fetching(App router)](#data-fetchingapp-router)
    - [Data Cache](#data-cache)
       - [fetch](#fetch)
+   - [Request Memoization](#request-memoization)
 <br><br>
 
 ## :label: Next.js
@@ -311,4 +312,15 @@ My personal playground for nextjs coding and learning.
       - Update data when a request is received.
       - On-Demand Revalidate(Similar to the On-Demand ISR approach in the Page Router)
    <br>
+
+### Request Memoization
+![image](https://github.com/user-attachments/assets/c1984f5d-eaec-4715-a51e-4b78ca61266f)
+   - React extends the fetch API to automatically memoize requests that have the same URL and options. 
+   - This means you can call a fetch function for the same data in multiple places in a React component tree while only executing it once.
+   ![image](https://github.com/user-attachments/assets/186bad2f-aa0b-484c-abbe-6e897ac22fc4)
+   - Request memoization emerged as a result of the pattern changes in data fetching introduced by the adoption of server components.
+   - It is solely intended to cache duplicate API requests during the rendering of a single page. 
+      - Therefore, all caches are immediately discarded once the rendering is complete.
+      ![image](https://github.com/user-attachments/assets/582615a4-eafe-44b5-b423-38c2ab83f9f0)
+<br>
 
