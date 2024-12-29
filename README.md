@@ -27,6 +27,7 @@ My personal playground for nextjs coding and learning.
    - [Data Cache](#data-cache)
       - [fetch](#fetch)
    - [Request Memoization](#request-memoization)
+   - [Full Route Cache](#full-route-cache)
 <br><br>
 
 ## :label: Next.js
@@ -322,5 +323,36 @@ My personal playground for nextjs coding and learning.
    - It is solely intended to cache duplicate API requests during the rendering of a single page. 
       - Therefore, all caches are immediately discarded once the rendering is complete.
       ![image](https://github.com/user-attachments/assets/582615a4-eafe-44b5-b423-38c2ab83f9f0)
+<br>
+
+### Full Route Cache(only static pages)
+- This is page caching.
+- Next.js automatically renders and caches routes at build time.
+- This is an optimization that allows you to serve the cached route instead of rendering on the server for every request, resulting in faster page loads.
+![image](https://github.com/user-attachments/assets/7f11c38c-fd73-4ce4-965f-1d5b272cc281)
+<br>
+
+- All pages in Next.js are automatically categorized as Static Pages or Dynamic Pages depending on the features they utilize(Only server components, client components do not affect the type of page).
+   - Static Page: Default, If it’s not a dynamic page, it becomes a static page.
+   - Dynamic Page: When a specific page changes or its data updates with every access request.
+      1. When non-cached data fetching is used.
+         - `fetch('...')` or `fetch('...', { cache: 'no-store' })`
+      2. When a component uses dynamic functions(cookies, headers, query strings).
+   - | Dynamic function | Data Cache | Page         |
+     | :--------------: | :--------: | :--:                          |
+     | YES              | NO         | Dynamic Page                  |
+     | YES              | YES        | Dynamic Page                  |
+     | NO               | NO         | Dynamic Page                  |
+     | NO               | YES        | Static Page(Full Route Cache) |
+     
+     <br><br>
+
+- `fetch('...', { next: { revalidate: 3 } })`: Similar to the ISR approach in the Page Router.
+![image](https://github.com/user-attachments/assets/f01d3cd9-4e50-4dd3-ae9d-b5e125cd5486)
+<br>
+
+- This doesn’t mean that Dynamic pages are inherently an anti-pattern. 
+- Even though full route cache cannot be used, Request Memoization and Data Cache can still be utilized as follows.
+![image](https://github.com/user-attachments/assets/6e24b2c0-e013-4583-b6aa-a6745c76da37)
 <br>
 
