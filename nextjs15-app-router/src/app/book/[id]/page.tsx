@@ -15,7 +15,7 @@ const mockData = {
 export default function Page({
   params
 }: {
-  params: { id: string | string[] }
+  params: Promise<{ id: string | string[] }>
 }) {
   const { id, title, subTitle, description, author, publisher, coverImgUrl } =
     mockData
