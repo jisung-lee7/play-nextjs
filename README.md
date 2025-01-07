@@ -32,6 +32,7 @@ My personal playground for nextjs coding and learning.
    - [Route Segment Config](#route-segment-config)
       - [dynamic](#dynamic)
    - [Client-side Router Cache](#client-side-router-cache)
+   - [Streaming](#streaming)
 <br><br>
 
 ## :label: Next.js
@@ -412,4 +413,31 @@ export const dynamicParams = true // true | false
    - Loading states are cached and reused on navigation for instant navigation.
    - Pages are not cached by default, but are reused during browser backward and forward navigation. You can enable caching for page segments by using the experimental `staleTimes` config option.
 <br>
+
+### Streaming
+- A technique used to split large or delayed data into smaller chunks and send them one by one from the server to the client.
+- Next.js supports streaming.
+- Streaming is mainly used in dynamic pages.
+- With the `loading.js file`(streaming of page component)
+   - Create a loading.tsx file in the same location as the page component.
+   - Caveats
+      - All page components under the specified path will be streamed.
+      - Streaming is only provided for page components that work asynchronously(async).
+      - Streaming is applied only to page components (excluding layouts and other components).
+      - It is not triggered when the query string changes in the browser.
+- With React's `<Suspense> component`(streaming of just component)
+   - Any content wrapped in a `<Suspense>` boundary will be streamed.
+      ```typescriptreact
+      <Suspense fallback={<div>Loading...</div>}>
+        <Component />
+      </Suspense>
+      ```
+      <br>
+   - React’s `<Suspense>` component switches to the loading state whenever the key value changes.
+      ```typescriptreact
+      <Suspense key={q} fallback={<div>Loading...</div>}>
+        <Component />
+      </Suspense>
+      ```
+      <br>
 
