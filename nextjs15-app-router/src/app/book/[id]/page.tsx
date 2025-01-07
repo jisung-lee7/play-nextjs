@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation'
 import style from './page.module.css'
 
 export function generateStaticParams() {
@@ -16,6 +17,9 @@ export default async function Page({
   )
 
   if (!response.ok) {
+    if (response.status === 404) {
+      notFound()
+    }
     return <div>Error...</div>
   }
 
