@@ -28,6 +28,7 @@ My personal playground for nextjs coding and learning.
       - [fetch](#fetch)
    - [Request Memoization](#request-memoization)
    - [Full Route Cache](#full-route-cache)
+      - [generateStaticParams](#generateStaticParams)
 <br><br>
 
 ## :label: Next.js
@@ -354,5 +355,23 @@ My personal playground for nextjs coding and learning.
 - This doesn’t mean that Dynamic pages are inherently an anti-pattern. 
 - Even though full route cache cannot be used, Request Memoization and Data Cache can still be utilized as follows.
 ![image](https://github.com/user-attachments/assets/6e24b2c0-e013-4583-b6aa-a6745c76da37)
+<br>
+
+#### generateStaticParams
+- The generateStaticParams function can be used in combination with dynamic route segments to statically generate routes at build time instead of on-demand at request time.
+- Pages not predefined (e.g., id: 1, id: 2, id: 3) are generated as static pages in real-time upon request.
+- It’s similar to getStaticPaths in the Page Router.
+```typescript
+export function generateStaticParams() {
+  return [{ id: '1' }, { id: '2' }, { id: '3' }]
+}
+
+// Even if there is a fetch without Data caching configured, the page is forcibly set as a Static page through generateStaticParams.
+export default async function Page() {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${id}`
+  )
+}
+```
 <br>
 
