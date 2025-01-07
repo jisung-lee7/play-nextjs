@@ -142,7 +142,7 @@ My personal playground for nextjs coding and learning.
   ![image](https://github.com/user-attachments/assets/8d3f72bb-28f2-4a72-9b28-574e8a28c102)
 <br><br>
 
-```typescript
+```typescriptreact
   return {
     props: { post },
     // Next.js will invalidate the cache when a
@@ -200,7 +200,7 @@ My personal playground for nextjs coding and learning.
       - Client components are executed twice: once on the server and once on the client.
    - The following pattern is not supported. You cannot import a Server Component into a Client Component:
       - In this case, to avoid run-time errors, Next.js automatically converts server component to client component.
-         ```typescript
+         ```typescriptreact
          'use client'
           
          // You cannot import a Server Component into a Client Component.
@@ -220,7 +220,7 @@ My personal playground for nextjs coding and learning.
          ```
          <br>
       - If you want the following pattern is supported. You can pass Server Components as a prop to a Client Component. 
-         ```typescript
+         ```typescriptreact
          'use client'
           
          import { useState } from 'react'
@@ -365,7 +365,7 @@ My personal playground for nextjs coding and learning.
 - The generateStaticParams function can be used in combination with dynamic route segments to statically generate routes at build time instead of on-demand at request time.
 - Pages not predefined (e.g., id: 1, id: 2, id: 3) are generated as static pages in real-time upon request.
 - It’s similar to getStaticPaths in the Page Router.
-```typescript
+```typescriptreact
 export function generateStaticParams() {
   return [{ id: '1' }, { id: '2' }, { id: '3' }]
 }
@@ -381,7 +381,7 @@ export default async function Page() {
 
 ##### dynamicParams
 - Control what happens when a dynamic segment is visited that was not generated with generateStaticParams.
-```typescript
+```typescriptreact
 export const dynamicParams = true // true | false
 ```
 - true (default): Dynamic segments not included in generateStaticParams are generated on demand.
