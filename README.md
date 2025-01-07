@@ -375,3 +375,12 @@ export default async function Page() {
 ```
 <br>
 
+##### dynamicParams
+- Control what happens when a dynamic segment is visited that was not generated with generateStaticParams.
+```typescript
+export const dynamicParams = true // true | false
+```
+- true (default): Dynamic segments not included in generateStaticParams are generated on demand.
+- false: Dynamic segments not included in generateStaticParams will return a 404.
+<br>
+
