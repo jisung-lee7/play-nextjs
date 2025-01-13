@@ -3,6 +3,7 @@ import style from './page.module.css'
 import { BookData } from '@/types'
 import { delay } from '@/util/delay'
 import { Suspense } from 'react'
+import BookListSkeleton from '@/components/skeleton/book-list-skeleton'
 
 async function AllBooks() {
   await delay(1500)
@@ -52,13 +53,13 @@ export default function Home() {
     <div className={style.container}>
       <section>
         <h3>Current recommended books</h3>
-        <Suspense fallback={<div>Loading books...</div>}>
+        <Suspense fallback={<BookListSkeleton count={3} />}>
           <RecoBooks />
         </Suspense>
       </section>
       <section>
         <h3>All registered books</h3>
-        <Suspense fallback={<div>Loading books...</div>}>
+        <Suspense fallback={<BookListSkeleton count={10} />}>
           <AllBooks />
         </Suspense>
       </section>
