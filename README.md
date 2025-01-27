@@ -33,6 +33,7 @@ My personal playground for nextjs coding and learning.
       - [dynamic](#dynamic)
    - [Client-side Router Cache](#client-side-router-cache)
    - [Streaming](#streaming)
+   - [Error Handling](#error-handling)
 <br><br>
 
 ## :label: Next.js
@@ -440,4 +441,6 @@ export const dynamicParams = true // true | false
       </Suspense>
       ```
       <br>
+
+### Error Handling
 
