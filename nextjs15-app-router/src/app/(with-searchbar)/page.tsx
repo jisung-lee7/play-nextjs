@@ -30,7 +30,7 @@ async function RecoBooks() {
   await delay(3000)
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/random`,
-    { next: { revalidate: 3 } }
+    { cache: 'no-store' }
   )
   if (!response.ok) {
     return <div>Error...</div>
