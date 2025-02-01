@@ -15,7 +15,7 @@ export default function Error({
   return (
     <div>
       <h3>Error...</h3>
-      <button onClick={() => reset()}>Reset</button>
+      <button onClick={() => window.location.reload()}>Reset</button>
     </div>
   )
 }
